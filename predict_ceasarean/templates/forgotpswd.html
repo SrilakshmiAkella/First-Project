@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+	<title>Forgot pswd</title>
+</head>	
+<style>
+body {
+			background-image : url("/static/images/momsss.jpg");
+    		background-size : cover;
+		}
+input[type = "submit"] {
+			width: 10%;
+			color: white;
+			background-color: black;
+			padding: 7px 10px;
+			margin: 4px 0;
+			border: none;
+			border-radius: 2px;
+			cursor: pointer;
+			font-size: 15px;
+		}
+
+
+
+</style>
+<center>
+<body>
+		{% with messages = get_flashed_messages()%}
+			{%if messages %}
+					{% for message in messages %}
+					<h3> {{message}} </h3>
+					{% endfor %}
+			{% endif %}
+		{% endwith %}
+<div align="center">
+<form action="#" method="post"> 
+<br> <br> <br><br> <br> <br> <br> <br>
+	<label for="mail"><b>Enter your Email id:</b></label><input type="Email" name="mail" size="30"><br><br>
+		<input type="submit" value="Submit" size="20"><br>
+
+</form>
+</div>
+</body>
+</center>

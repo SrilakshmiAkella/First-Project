@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+	<title> User login</title>
+	<style>
+		body {
+			background-image : url("/static/images/momsss.jpg");
+    		background-size : cover;
+		}
+
+		form {
+			display: inline;
+		}
+
+		input[type = "email"], input[type = "password"] {
+			width: 70%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			float: right;
+		}
+
+		input[type = "submit"] {
+			width: 30%;
+			color: white;
+			background-color: black;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 20px;
+		}
+
+		label {
+			clear: both;
+			font-size: 20px;
+			text-align: center;
+			font-weight: bold;
+			margin-top: 15px;
+			float: left;
+		}
+
+		b {
+			font-size: 20px;
+		}
+
+		a {
+			font-size: 23px;
+			text-decoration: none;
+			font-weight: bold;
+			color:#3333cc;
+			
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+		.forgot{
+			font-size: 18px;
+			color: black;
+		}
+
+		.loginForm {
+			margin: 0 34%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="loginForm" align="center">
+		{% with messages = get_flashed_messages() %}
+		{%if messages %}
+				{% for message in messages %}
+				<h3> {{message}} </h3>
+				{% endfor %}
+		{% endif %}
+		{% endwith %}	
+	<br><br><br><br><br>
+		<form action="{{url_for('login')}}" method="post">
+			<caption align="center"><h1> Patient Login </h1></caption>
+			<label for="email">Email:</label><input type="Email" name="mail" size="30">
+			<label for="password">Password:</label><input type="Password" name="pswd" size="30">
+			<input type="submit" value="Login" size="50"><br>
+			<b> Not yet a member?</b> <a href="/register/" > Sign up </a> <br> 
+			<!--<a href="/forgotpswd/" class="forgot"> Forgot pswd </a> -->
+			</form>
+	</div>
+</body>

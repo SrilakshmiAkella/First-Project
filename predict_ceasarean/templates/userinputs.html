@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+	<title>Patient Details</title>
+	<style>
+		body {
+			background-image : url("/static/images/momsss.jpg");
+    		background-size : cover;
+		}
+
+		input[type = "text"], input[type = "password"], input[type = "email"], input[type="number"], input[type="radio"] {
+			width: 52%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			float: right;
+		}
+
+		.heartProblem {
+			text-align: left;
+			vertical-align: middle;
+		}
+
+		select {
+			width: 58%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			float: right;
+		}
+		a{
+		   margin-left: 900px;
+		   color: black;
+		   font-size: 25px;
+		   font-weight: bold;
+		}
+
+		input[type = "submit"] {
+			width: 50%;
+			color: white;
+			background-color: black;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 20px;
+		}
+
+		label {
+
+			clear: both;
+			font-size: 23px;
+			text-align: center;
+			font-weight: bold;
+			color: black;
+			margin-top: 15px;
+			float: left;
+		}
+
+		.userInputs {
+			margin: 0 28%;
+		}
+	</style>
+</head>
+<body>
+<br>
+<br>
+	<div class="userInputs" align="center">
+		{% with messages = get_flashed_messages()%}
+			{%if messages %}
+					{% for message in messages %}
+					<h3> {{message}} </h3>
+					{% endfor %}
+			{% endif %}
+			{% endwith %}
+		<form action="{{url_for('userInputs')}}" method="post">
+		 <a href="/logout"> Logout </a>
+			<caption align="center"><h1> Patient Details </h1></caption>
+
+			<label for="age">Age:</label><input type="text" name="age_value">
+
+			<label for="delivery_details"> Delivery No:</label>
+			<select name="deliveryno" >
+		    	<option>Delivery No-1</option>
+		        <option>Delivery No-2</option>
+		        <option>Delivery No-3</option>
+		    </select>
+
+			<label for="delivery_type"> Type of previous delivery:</label>
+
+			<select name="typofdel">
+				<option> -- </option>
+				<option>Normal</option>
+		        <option>Caesarean</option>
+		    </select>
+		    <label for="heart_problem">Heart Problem:</label>
+			<select name="hrtprb">
+		        <option>Yes</option>
+		        <option>No</option>
+		    </select>
+			<label for="bp">Blood pressure:</label><input type="text" name="bp">
+			<label for="baby_position"> Baby Position:</label>
+		    <select required="" name="babypos" >
+		        <option value="anterior">Anterior</option>
+		        <option value="HEADUP">Head Up</option>
+		        <option value="TRANSVERSALIE">Transverse Lie</option>
+		    </select>
+		    <input type="submit" value="Predict" size="50">
+
+		</form>
+	</div>
+</body>

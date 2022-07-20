@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+	<title> User Registration</title>
+	<style>
+		body {
+			background-image : url("/static/images/momsss.jpg");
+    		background-size : cover; 
+  			background-repeat: no-repeat;
+
+		}
+		a{
+			color: #3366ff;
+		}
+		
+		h3{
+
+			margin-left: 400px;
+			padding-top: 30px;
+			
+		}
+</style>
+</head>
+<body>
+	<div id="bgimg">
+		{% with messages = get_flashed_messages()%}
+		{%if messages %}
+				{% for message in messages %}
+				<h2 style="color: black; margin-left: 400px; padding-top: 200px;  "> {{message}} </h2>
+				{% endfor %}
+		{% endif %}
+		{% endwith %}
+	<h3><b> Do u want to predict again?</b><a href="{{url_for('userInputs')}}"> Check again </a></h3>
+</div>
+</body>
+
+

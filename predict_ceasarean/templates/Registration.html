@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+	<title> User Registration</title>
+	<style>
+		body {
+			background-image : url("/static/images/momsss.jpg");
+    		background-size : cover; 
+  			background-repeat: no-repeat;
+		}
+
+		#bgimg {
+			/*background-image : url("/static/images/mombaby.jpg");
+			height: 100%;
+			width: 100%;
+			background-size : cover; 
+			background-position: center;
+  			background-repeat: no-repeat;
+  			position: relative;*/
+		}
+
+		form {
+			display: inline;
+		}
+
+		input[type = "text"], input[type = "password"], input[type = "email"], input[type="number"] {
+			width: 70%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			float: right;
+		}
+
+		input[type = "submit"] {
+			width: 50%;
+			color: white;
+			background-color: black;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 20px;
+		}
+
+		label {
+			clear: both;
+			font-size: 20px;
+			text-align: center;
+			font-weight: bold;
+			margin-top: 15px;
+			float: left;
+		}
+
+		b {
+			font-size: 20px;
+		}
+
+		a {
+			font-size: 25px;
+			text-decoration: none;
+			color: #8C002C;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.registrationForm {
+			margin: 0 34%;
+		}
+	</style>
+</head>
+<body>
+	<div id="bgimg">
+		{% with messages = get_flashed_messages()%}
+		{%if messages %}
+				{% for message in messages %}
+				<h3 style="color: red; text-align: center;"> {{message}} </h3>
+				{% endfor %}
+		{% endif %}
+		{% endwith %}	
+		<div class="registrationForm" align="center">
+		<br><br>
+			<form action="#" method="post">
+				<caption align="center"><h1> Registration </h1></caption>
+				<label for="fname">Firstname:</label><input type="text" name="fname" size="30"><br>
+				<label for="lname">Lastname:</label><input type="text" name="lname" size="30">
+				<label for="email">Email:</label><input type="Email" name="mail" size="30">
+				<label for="password">Password:</label><input type="Password" name="pswd" size="30">
+				<label for="phoneNo">Phone no:</label><input type="number" name="pnum" maxlength="10">
+				<input type="submit" value="Register" size="50">
+			</form>
+		</div>
+	</div>
+</body>
